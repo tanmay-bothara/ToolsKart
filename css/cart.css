@@ -1,0 +1,148 @@
+.cart {
+    padding-top: 100px;
+    background: var(--light);
+}
+
+.cart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.cart-items {
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.cart-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    padding: 15px 20px;
+    background: var(--primary);
+    color: var(--white);
+    font-weight: 600;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.cart-item-product {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cart-item-name {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.cart-item-price, .cart-item-total {
+    font-weight: 600;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-control button {
+    background: #f0f0f0;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.quantity-control button:hover {
+    background: #ddd;
+}
+
+.remove-item {
+    color: var(--danger);
+    font-size: 1.2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.cart-summary {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+    align-self: flex-end;
+    width: 100%;
+    max-width: 400px;
+}
+
+.summary-title {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: var(--primary);
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.summary-total {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary);
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 40px;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .cart-header, .cart-item {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .cart-item {
+        position: relative;
+        padding-bottom: 40px;
+    }
+    
+    .cart-item-name {
+        margin-top: 10px;
+    }
+    
+    .remove-item {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+    }
+}

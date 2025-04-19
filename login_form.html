@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>ToolsKart - Login Form</title>
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/login_register.css">
+</head>
+<body>
+<div class="form-container">
+   <form id="loginForm">
+      <h3>Login Now</h3>
+      <input type="email" name="email" required placeholder="Enter Your Email">
+      <input type="password" name="password" required placeholder="Enter Your Password">
+      <button type="submit" class="form-btn">Login Now</button>
+      <p>Don't Have An Account? <a href="register_form.html">Register Now</a></p>
+   </form>
+</div>
+
+<script>
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault(); 
+    localStorage.setItem('isLoggedIn', 'true');
+    window.location.href = 'index.html'; 
+});
+</script>
+</body>
+</html>

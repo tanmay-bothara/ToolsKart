@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - ToolsKart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><i class="fas fa-shopping-cart"></i>Tools<span>Kart</span></a>
+            <input type="checkbox" id="mobile-menu">
+            <label for="mobile-menu" class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </label>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="sell.html">Sell</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a></li>
+                <li class="profile-dropdown">
+                    <a href="#" class="profile-icon"><i class="fas fa-user-circle"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="login_form.html" id="loginOption">Login/Register</a></li>
+                        <li><a href="profile.html" id="profileOption">Your Profile</a></li>
+                        <li><a href="#" id="logoutOption" style="display:none;">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="cart">
+        <div class="container cart-container">
+            <h2 class="section-title">Your Cart</h2>
+            <div class="cart-items">
+                <div class="cart-header">
+                    <div>Product</div>
+                    <div>Price</div>
+                    <div>Quantity</div>
+                    <div>Total</div>
+                    <div>Action</div>
+                </div>
+                
+            </div>
+            
+            <div class="cart-summary">
+                <h3 class="summary-title">Order Summary</h3>
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="subtotal">₹0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span id="shipping">₹40</span>
+                </div>
+                <div class="summary-row">
+                    <span>Tax (18%)</span>
+                    <span id="tax">₹0</span>
+                </div>
+                <div class="summary-row summary-total">
+                    <span>Total</span>
+                    <span id="total">₹0</span>
+                </div>
+                <a href="checkout.html" class="btn .contact-btn">Proceed To Checkout</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-column">
+                <h3>ToolsKart</h3>
+                <p>Your One-Stop Shop For Student Essentials. Connect Buyers And Sellers Directly.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="sell.html">Sell</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="products.html?category=books">Books</a></li>
+                    <li><a href="products.html?category=calculators">Calculators</a></li>
+                    <li><a href="products.html?category=stationery">Stationery</a></li>
+                    <li><a href="products.html?category=lab">Lab Equipment</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt"></i> 1, KBTCOE, Gangapur Road, Nashik - 422013</li>
+                    <li><i class="fas fa-phone"></i> (+91) 9876543210</li>
+                    <li><i class="fas fa-envelope"></i> infotoolskart@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container copyright">
+            <p>&copy; 2025 ToolsKart. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsContainer = document.querySelector('.cart-items');
+            const cartCountElement = document.querySelector('.cart-count');
+            
+            function renderCart() {
+                while (cartItemsContainer.children.length > 1) {
+                    cartItemsContainer.removeChild(cartItemsContainer.lastChild);
+                }
+                
+                if (cart.length === 0) {
+                    const emptyCart = document.createElement('div');
+                    emptyCart.className = 'empty-cart';
+                    emptyCart.textContent = 'Your Cart Is Empty.';
+                    cartItemsContainer.appendChild(emptyCart);
+                    updateSummary();
+                    return;
+                }
+                
+                let subtotal = 0;
+                
+                cart.forEach((item, index) => {
+                    const itemTotal = item.price * item.quantity;
+                    subtotal += itemTotal;
+                    
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
+                        <div class="cart-item-product">
+                            <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+                            <span class="cart-item-name">${item.name}</span>
+                        </div>
+                        <div class="cart-item-price">₹${item.price.toFixed(2)}</div>
+                        <div class="cart-item-quantity">
+                            <div class="quantity-control">
+                                <button class="quantity-decrease" data-index="${index}">-</button>
+                                <span class="quantity-value">${item.quantity}</span>
+                                <button class="quantity-increase" data-index="${index}">+</button>
+                            </div>
+                        </div>
+                        <div class="cart-item-total">₹${itemTotal.toFixed(2)}</div>
+                        <div class="cart-item-action">
+                            <button class="remove-item" data-index="${index}"><i class="fas fa-trash"></i></button>
+                        </div>
+                    `;
+                    cartItemsContainer.appendChild(cartItem);
+                });
+                
+                updateSummary(subtotal);
+            }
+            
+            function updateSummary(subtotal = 0) {
+                const shipping = subtotal > 0 ? 40 : 0;
+                const tax = subtotal * 0.18;
+                const total = subtotal + shipping + tax;
+                
+                document.getElementById('subtotal').textContent = `₹${subtotal.toFixed(2)}`;
+                document.getElementById('shipping').textContent = `₹${shipping.toFixed(2)}`;
+                document.getElementById('tax').textContent = `₹${tax.toFixed(2)}`;
+                document.getElementById('total').textContent = `₹${total.toFixed(2)}`;
+            }
+            
+            renderCart();
+            document.querySelector('.cart-count').textContent = cart.reduce((total, item) => total + item.quantity, 0);
+            
+            document.querySelector('.cart-items').addEventListener('click', function(e) {
+                if (e.target.classList.contains('quantity-decrease') || 
+                    e.target.parentElement.classList.contains('quantity-decrease')) {
+                    const index = parseInt(e.target.getAttribute('data-index') || 
+                                         e.target.parentElement.getAttribute('data-index'));
+                    if (cart[index].quantity > 1) {
+                        cart[index].quantity--;
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        renderCart();
+                    }
+                }
+                
+                if (e.target.classList.contains('quantity-increase') || 
+                    e.target.parentElement.classList.contains('quantity-increase')) {
+                    const index = parseInt(e.target.getAttribute('data-index') || 
+                                         e.target.parentElement.getAttribute('data-index'));
+                    cart[index].quantity++;
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    renderCart();
+                }
+                
+                if (e.target.classList.contains('remove-item') || 
+                    e.target.parentElement.classList.contains('remove-item')) {
+                    const index = parseInt(e.target.getAttribute('data-index') || 
+                                         e.target.parentElement.getAttribute('data-index'));
+                    cart.splice(index, 1);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    renderCart();
+                    document.querySelector('.cart-count').textContent = cart.reduce((total, item) => total + item.quantity, 0);
+                }
+            });
+
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            const loginOption = document.getElementById('loginOption');
+            const profileOption = document.getElementById('profileOption');
+            const logoutOption = document.getElementById('logoutOption');
+
+            if (isLoggedIn) {
+                if (loginOption) loginOption.style.display = 'none';
+                if (profileOption) profileOption.style.display = 'block';
+                if (logoutOption) logoutOption.style.display = 'block';
+            } else {
+                if (loginOption) loginOption.style.display = 'block';
+                if (profileOption) profileOption.style.display = 'none';
+                if (logoutOption) logoutOption.style.display = 'none';
+            }
+
+            if (logoutOption) {
+                logoutOption.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    localStorage.setItem('isLoggedIn', 'false');
+                    window.location.href = 'index.html';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Items - ToolsKart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sell.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><i class="fas fa-shopping-cart"></i>Tools<span>Kart</span></a>
+            <input type="checkbox" id="mobile-menu">
+            <label for="mobile-menu" class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </label>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="sell.html" class="active">Sell</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a></li>
+                <li class="profile-dropdown">
+                    <a href="#" class="profile-icon"><i class="fas fa-user-circle"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="login_form.html" id="loginOption">Login/Register</a></li>
+                        <li><a href="profile.html" id="profileOption">Your Profile</a></li>
+                        <li><a href="#" id="logoutOption" style="display:none;">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="sell">
+        <div class="container">
+            <h2 class="section-title">Sell Your Items</h2>
+            <div class="sell-form-container">
+                <div class="sell-guidelines">
+                    <h3><i class="fas fa-info-circle"></i> Selling Guidelines</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Only Academic-Related Items Allowed (Books, Calculators, Lab Equipment, etc.)</li>
+                        <li><i class="fas fa-check-circle"></i> Provide Accurate Descriptions And Photos</li>
+                        <li><i class="fas fa-check-circle"></i> Set Fair Prices (We Recommend 20-50% Off Retail Price)</li>
+                        <li><i class="fas fa-check-circle"></i> Be Responsive To Buyer Inquiries</li>
+                        <li><i class="fas fa-check-circle"></i> Meet Buyers On Campus</li>
+                    </ul>
+                </div>
+                
+                <div class="sell-form">
+                    <form id="sellForm">
+                        <div class="form-group">
+                            <label for="product-name">Product Name*</label>
+                            <input type="text" id="product-name" class="form-control" placeholder="e.g. JEE Advanced Physics Book" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="product-desc">Description*</label>
+                            <textarea id="product-desc" class="form-control" rows="5" placeholder="Include Details Like Condition, Edition, Special Features..." required></textarea>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="product-price">Price (₹)*</label>
+                                <input type="number" id="product-price" class="form-control" placeholder="e.g. 350" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="original-price">Original Price (₹)</label>
+                                <input type="number" id="original-price" class="form-control" placeholder="e.g. 500">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="product-category">Category*</label>
+                            <select id="product-category" class="form-control" required>
+                                <option value="">Select Category</option>
+                                <option value="books">Books</option>
+                                <option value="calculators">Calculators</option>
+                                <option value="stationery">Stationery</option>
+                                <option value="lab">Lab Equipment</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Product Images* (Max 3)</label>
+                            <div class="file-upload">
+                                <div class="file-upload-btn" id="uploadArea">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Click To Upload Or Drag And Drop</p>
+                                    <p class="small">JPEG Or PNG, Max 5MB Each</p>
+                                    <input type="file" id="product-image" class="file-upload-input" accept="image/*" multiple required>
+                                </div>
+                                <div id="previewContainer" class="preview-container">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="seller-info">
+                            <h3><i class="fas fa-user-circle"></i> Your Contact Information</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="seller-name">Your Name*</label>
+                                    <input type="text" id="seller-name" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="seller-email">Email*</label>
+                                    <input type="email" id="seller-email" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="seller-phone">Phone*</label>
+                                    <input type="tel" id="seller-phone" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="seller-location">Campus Location*</label>
+                                    <input type="text" id="seller-location" class="form-control" placeholder="e.g. KBTCOE Nashik" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-submit">
+                            <button type="submit" class="btn submit-btn">
+                                <i class="fas fa-check-circle"></i> List Item for Sale
+                            </button>
+                            <p class="form-note">By Submitting, You Agree To Our <a href="#">Terms Of Service</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-column">
+                <h3>ToolsKart</h3>
+                <p>Your One-Stop Shop For Student Essentials. Connect Buyers And Sellers Directly.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="sell.html">Sell</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="products.html?category=books">Books</a></li>
+                    <li><a href="products.html?category=calculators">Calculators</a></li>
+                    <li><a href="products.html?category=stationery">Stationery</a></li>
+                    <li><a href="products.html?category=lab">Lab Equipment</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt"></i> 1, KBTCOE, Gangapur Road, Nashik - 422013</li>
+                    <li><i class="fas fa-phone"></i> (+91) 9876543210</li>
+                    <li><i class="fas fa-envelope"></i> infotoolskart@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container copyright">
+            <p>&copy; 2025 ToolsKart. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartCountElement = document.querySelector('.cart-count');
+            
+            function updateCartCount() {
+                const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+                cartCountElement.textContent = totalItems;
+                localStorage.setItem('cartCount', totalItems);
+            }
+            
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productCard = this.closest('.product-card');
+                    const productId = productCard.id;
+                    const productName = productCard.querySelector('.product-name').textContent;
+                    const productPrice = parseFloat(productCard.querySelector('.current-price').textContent.replace('₹', ''));
+                    const productImage = productCard.querySelector('.product-img').src;
+                    
+                    const existingItem = cart.find(item => item.id === productId);
+                    
+                    if (existingItem) {
+                        existingItem.quantity++;
+                    } else {
+                        cart.push({
+                            id: productId,
+                            name: productName,
+                            price: productPrice,
+                            image: productImage,
+                            quantity: 1
+                        });
+                    }
+                    
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCartCount();
+                    alert(`${productName} added to cart!`);
+                });
+            });
+            
+            updateCartCount();
+
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            const loginOption = document.getElementById('loginOption');
+            const profileOption = document.getElementById('profileOption');
+            const logoutOption = document.getElementById('logoutOption');
+
+            if (isLoggedIn) {
+                if (loginOption) loginOption.style.display = 'none';
+                if (profileOption) profileOption.style.display = 'block';
+                if (logoutOption) logoutOption.style.display = 'block';
+            } else {
+                if (loginOption) loginOption.style.display = 'block';
+                if (profileOption) profileOption.style.display = 'none';
+                if (logoutOption) logoutOption.style.display = 'none';
+            }
+
+            if (logoutOption) {
+                logoutOption.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    localStorage.setItem('isLoggedIn', 'false');
+                    window.location.href = 'index.html';
+                });
+            }
+
+            const fileInput = document.getElementById('product-image');
+            const previewContainer = document.getElementById('previewContainer');
+
+            fileInput.addEventListener('change', function() {
+                previewContainer.innerHTML = '';
+                const files = this.files;
+                
+                if (files.length > 3) {
+                    alert('You Can Upload Maximum 3 Images');
+                    this.value = '';
+                    return;
+                }
+
+                for (let i = 0; i < files.length; i++) {
+                    const file = files[i];
+                    if (file.size > 5 * 1024 * 1024) {
+                        alert('File Size Should Be Less Than 5MB');
+                        this.value = '';
+                        previewContainer.innerHTML = '';
+                        return;
+                    }
+
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        const previewDiv = document.createElement('div');
+                        previewDiv.className = 'image-preview';
+                        previewDiv.innerHTML = `
+                            <img src="${event.target.result}" alt="Preview">
+                            <span class="remove-image" data-index="${i}">&times;</span>
+                        `;
+                        previewContainer.appendChild(previewDiv);
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            previewContainer.addEventListener('click', function(e) {
+                if (e.target.classList.contains('remove-image')) {
+                    const index = e.target.getAttribute('data-index');
+                    e.target.parentElement.remove();
+                    
+                    const dt = new DataTransfer();
+                    const files = fileInput.files;
+                    
+                    for (let i = 0; i < files.length; i++) {
+                        if (i != index) {
+                            dt.items.add(files[i]);
+                        }
+                    }
+                    
+                    fileInput.files = dt.files;
+                }
+            });
+
+            document.getElementById('sellForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Your Item Has Been Listed Successfully! Buyers Can Now Contact You.');
+                this.reset();
+                previewContainer.innerHTML = '';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Owner - ToolsKart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/product.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><i class="fas fa-shopping-cart"></i>Tools<span>Kart</span></a>
+            <input type="checkbox" id="mobile-menu">
+            <label for="mobile-menu" class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </label>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="sell.html">Sell</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a></li>
+                <li class="profile-dropdown">
+                    <a href="#" class="profile-icon"><i class="fas fa-user-circle"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="login_form.html" id="loginOption">Login/Register</a></li>
+                        <li><a href="profile.html" id="profileOption">Your Profile</a></li>
+                        <li><a href="#" id="logoutOption" style="display:none;">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="contact-owner-section">
+        <div class="container">
+            <h2 class="section-title">Contact Product Owner</h2>
+            <div class="owner-info-card">
+                <div class="owner-image">
+                    <img src="images/user-icon.jpg" alt="Owner">
+                </div>
+                <div class="owner-details">
+                    <h3>Product: Electronics Circuit Board Kit</h3>
+                    <div class="detail-item">
+                        <i class="fas fa-user"></i>
+                        <span><strong>Owner Name:</strong> Naveen Deore</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-envelope"></i>
+                        <span><strong>Email:</strong> naveend6@gmail.com</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-phone"></i>
+                        <span><strong>Phone:</strong> +91 86009 14038</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span><strong>Location:</strong> KBTCOE Campus, Nashik</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-star"></i>
+                        <span><strong>Condition:</strong> Decent (Used A Lot Previously)</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-tag"></i>
+                        <span><strong>Original Price:</strong> ₹1200</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-tags"></i>
+                        <span><strong>Selling Price:</strong> ₹899</span>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>Send Message to Owner</h3>
+                <form id="owner-contact-form">
+                    <div class="form-group">
+                        <label for="message-subject">Subject</label>
+                        <input type="text" id="message-subject" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-content">Your Message</label>
+                        <textarea id="message-content" class="form-control" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-column">
+                <h3>ToolsKart</h3>
+                <p>Your One-Stop Shop For Student Essentials. Connect Buyers And Sellers Directly.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="sell.html">Sell</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="products.html?category=books">Books</a></li>
+                    <li><a href="products.html?category=calculators">Calculators</a></li>
+                    <li><a href="products.html?category=stationery">Stationery</a></li>
+                    <li><a href="products.html?category=lab">Lab Equipment</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt"></i> 1, KBTCOE, Gangapur Road, Nashik - 422013</li>
+                    <li><i class="fas fa-phone"></i> (+91) 9876543210</li>
+                    <li><i class="fas fa-envelope"></i> infotoolskart@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container copyright">
+            <p>&copy; 2025 ToolsKart. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cartCount = localStorage.getItem('cartCount') || 0;
+            document.querySelector('.cart-count').textContent = cartCount;
+
+            document.getElementById('owner-contact-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Your message has been sent to the owner!');
+                this.reset();
+            });
+
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            const loginOption = document.getElementById('loginOption');
+            const profileOption = document.getElementById('profileOption');
+            const logoutOption = document.getElementById('logoutOption');
+
+            if (isLoggedIn) {
+                if (loginOption) loginOption.style.display = 'none';
+                if (profileOption) profileOption.style.display = 'block';
+                if (logoutOption) logoutOption.style.display = 'block';
+            } else {
+                if (loginOption) loginOption.style.display = 'block';
+                if (profileOption) profileOption.style.display = 'none';
+                if (logoutOption) logoutOption.style.display = 'none';
+            }
+
+            if (logoutOption) {
+                logoutOption.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    localStorage.setItem('isLoggedIn', 'false');
+                    window.location.href = 'index.html';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - ToolsKart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/checkout.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><i class="fas fa-shopping-cart"></i>Tools<span>Kart</span></a>
+            <input type="checkbox" id="mobile-menu">
+            <label for="mobile-menu" class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </label>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="sell.html">Sell</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a></li>
+                <li class="profile-dropdown">
+                    <a href="#" class="profile-icon"><i class="fas fa-user-circle"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="login_form.html" id="loginOption">Login/Register</a></li>
+                        <li><a href="profile.html" id="profileOption">Your Profile</a></li>
+                        <li><a href="#" id="logoutOption" style="display:none;">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="checkout">
+        <div class="container">
+            <h2 class="section-title">Contact Sellers</h2>
+            <div class="checkout-info">
+                <p>Below are the contact details of the sellers for the items in your cart. Please contact them directly to arrange the purchase.</p>
+            </div>
+            
+            <div class="seller-contacts" id="sellerContacts">
+                <div class="empty-cart-message">
+                    <p>Your cart is empty. There are no sellers to contact.</p>
+                </div>
+            </div>
+            
+            <div class="checkout-actions">
+                <a href="cart.html" class="btn btn-outline">Back to Cart</a>
+                <a href="products.html" class="btn">Back to Products</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-column">
+                <h3>ToolsKart</h3>
+                <p>Your One-Stop Shop For Student Essentials. Connect Buyers And Sellers Directly.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="sell.html">Sell</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="products.html?category=books">Books</a></li>
+                    <li><a href="products.html?category=calculators">Calculators</a></li>
+                    <li><a href="products.html?category=stationery">Stationery</a></li>
+                    <li><a href="products.html?category=lab">Lab Equipment</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt"></i> 1, KBTCOE, Gangapur Road, Nashik - 422013</li>
+                    <li><i class="fas fa-phone"></i> (+91) 9876543210</li>
+                    <li><i class="fas fa-envelope"></i> infotoolskart@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container copyright">
+            <p>&copy; 2025 ToolsKart. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cartCount = localStorage.getItem('cartCount') || 0;
+            document.querySelector('.cart-count').textContent = cartCount;
+
+            const productSellers = {
+                'book1': {
+                    name: 'Rohan Sharma',
+                    email: 'rohan.sharma@gmail.com',
+                    phone: '+91 99231 32604',
+                    location: 'KBTCOE Campus, Nashik'
+                },
+                'calculator1': {
+                    name: 'Arnav Shah',
+                    email: 'arnavshah2@gmail.com',
+                    phone: '+91 82379 42753',
+                    location: 'KBTCOE Campus, Nashik'
+                },
+                'scale1': {
+                    name: 'Mithilesh Desai',
+                    email: 'desai.mithilesh@gmail.com',
+                    phone: '+91 96074 99472',
+                    location: 'KBTCOE Campus, Nashik'
+                },
+                'notebook1': {
+                    name: 'Vivek More',
+                    email: 'morevivek4@gmail.com',
+                    phone: '+91 72190 54850',
+                    location: 'KBTCOE Campus, Nashik'
+                },
+                'geometry-box': {
+                    name: 'Ishan Kumar',
+                    email: 'ishank@gmail.com',
+                    phone: '+91 87679 34556',
+                    location: 'KBTCOE Campus, Nashik'
+                },
+                'circuit-board': {
+                    name: 'Naveen Deore',
+                    email: 'naveend6@gmail.com',
+                    phone: '+91 86009 14038',
+                    location: 'KBTCOE Campus, Nashik'
+                }
+            };
+
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const sellerContactsContainer = document.getElementById('sellerContacts');
+
+            if (cart.length > 0) {
+                sellerContactsContainer.innerHTML = '';
+
+                const uniqueSellers = new Map();
+
+                cart.forEach(item => {
+                    const seller = productSellers[item.id];
+                    if (seller) {
+                        if (!uniqueSellers.has(seller.email)) {
+                            uniqueSellers.set(seller.email, {
+                                ...seller,
+                                products: [item]
+                            });
+                        } else {
+                            uniqueSellers.get(seller.email).products.push(item);
+                        }
+                    }
+                });
+
+                uniqueSellers.forEach((seller, email) => {
+                    const sellerCard = document.createElement('div');
+                    sellerCard.className = 'seller-card';
+                    
+                    let productsList = '';
+                    seller.products.forEach(product => {
+                        productsList += `<li>${product.name} (Qty: ${product.quantity})</li>`;
+                    });
+
+                    sellerCard.innerHTML = `
+                        <div class="seller-info">
+                            <h3><i class="fas fa-user"></i> ${seller.name}</h3>
+                            <div class="seller-details">
+                                <p><i class="fas fa-envelope"></i> ${seller.email}</p>
+                                <p><i class="fas fa-phone"></i> ${seller.phone}</p>
+                                <p><i class="fas fa-map-marker-alt"></i> ${seller.location}</p>
+                            </div>
+                        </div>
+                        <div class="seller-products">
+                            <h4>Items to Purchase:</h4>
+                            <ul>${productsList}</ul>
+                        </div>
+                        <div class="seller-actions">
+                            <a href="mailto:${seller.email}" class="btn contact-btn">
+                                <i class="fas fa-envelope"></i> Email Seller
+                            </a>
+                        </div>
+                    `;
+                    
+                    sellerContactsContainer.appendChild(sellerCard);
+                });
+            }
+
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            const loginOption = document.getElementById('loginOption');
+            const profileOption = document.getElementById('profileOption');
+            const logoutOption = document.getElementById('logoutOption');
+
+            if (isLoggedIn) {
+                if (loginOption) loginOption.style.display = 'none';
+                if (profileOption) profileOption.style.display = 'block';
+                if (logoutOption) logoutOption.style.display = 'block';
+            } else {
+                if (loginOption) loginOption.style.display = 'block';
+                if (profileOption) profileOption.style.display = 'none';
+                if (logoutOption) logoutOption.style.display = 'none';
+            }
+
+            if (logoutOption) {
+                logoutOption.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    localStorage.setItem('isLoggedIn', 'false');
+                    window.location.href = 'index.html';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

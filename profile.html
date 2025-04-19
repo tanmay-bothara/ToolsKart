@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile - ToolsKart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><i class="fas fa-shopping-cart"></i>Tools<span>Kart</span></a>
+            <input type="checkbox" id="mobile-menu">
+            <label for="mobile-menu" class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </label>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="sell.html">Sell</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a></li>
+                <li class="profile-dropdown">
+                    <a href="#" class="profile-icon"><i class="fas fa-user-circle"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="login_form.html" id="loginOption">Login/Register</a></li>
+                        <li><a href="profile.html" id="profileOption">Your Profile</a></li>
+                        <li><a href="#" id="logoutOption" style="display:none;">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="profile-section">
+        <div class="container">
+            <h2 class="section-title">Your Profile</h2>
+            
+            <div id="loginPrompt" style="display: none;">
+                <div class="login-prompt-content">
+                    <h3>Please login to view your profile</h3>
+                    <a href="login_form.html" class="btn">Login Now</a>
+                </div>
+            </div>
+            
+            <div id="profileContent" style="display: none;">
+                <div class="profile-info">
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="profile-details">
+                            <h3>Welcome Back!</h3>
+                            <p>Member Since March 2025</p>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-tabs">
+                        <button class="tab-btn active" data-tab="orders">Your Orders</button>
+                        <button class="tab-btn" data-tab="uploads">Your Uploads</button>
+                    </div>
+                    
+                    <div class="tab-content active" id="orders">
+                        <div class="order-list">
+                            <div class="order-card">
+                                <div class="order-header">
+                                    <h3>Order #2</h3>
+                                    <span class="order-status">Completed</span>
+                                </div>
+                                <div class="order-details">
+                                    <div class="order-item">
+                                        <img src="images/book.png" alt="Product" class="order-item-img">
+                                        <div class="order-item-info">
+                                            <h4>C++ Coding Book</h4>
+                                            <p>Quantity: 1</p>
+                                            <p>Price: ₹120</p>
+                                        </div>
+                                    </div>
+                                    <div class="order-summary">
+                                        <p><strong>Total:</strong> ₹120</p>
+                                        <p><strong>Order Date:</strong> February 28, 2025</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="order-card">
+                                <div class="order-header">
+                                    <h3>Order #1</h3>
+                                    <span class="order-status">Completed</span>
+                                </div>
+                                <div class="order-details">
+                                    <div class="order-item">
+                                        <img src="images/calculator.png" alt="Product" class="order-item-img">
+                                        <div class="order-item-info">
+                                            <h4>Scientific Calculator</h4>
+                                            <p>Quantity: 1</p>
+                                            <p>Price: ₹499</p>
+                                        </div>
+                                    </div>
+                                    <div class="order-summary">
+                                        <p><strong>Total:</strong> ₹499</p>
+                                        <p><strong>Order Date:</strong> April 04, 2025</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="uploads">
+                        <div class="upload-list">
+                            <div class="upload-card">
+                                <img src="images/notebook.png" alt="Product" class="upload-item-img">
+                                <div class="upload-info">
+                                    <h3>Engineering Notebook</h3>
+                                    <p>Price: ₹80</p>
+                                    <p>Status: Available</p>
+                                    <div class="upload-actions">
+                                        <button class="btn edit-btn">Edit</button>
+                                        <button class="btn delete-btn">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="upload-card">
+                                <img src="images/geometry-box.png" alt="Product" class="upload-item-img">
+                                <div class="upload-info">
+                                    <h3>Premium Geometry Box</h3>
+                                    <p>Price: ₹199</p>
+                                    <p>Status: Available</p>
+                                    <div class="upload-actions">
+                                        <button class="btn edit-btn">Edit</button>
+                                        <button class="btn delete-btn">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="sell.html" class="btn add-upload-btn">
+                            <i class="fas fa-plus"></i> Add New Upload
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-column">
+                <h3>ToolsKart</h3>
+                <p>Your One-Stop Shop For Student Essentials. Connect Buyers And Sellers Directly.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="sell.html">Sell</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="products.html?category=books">Books</a></li>
+                    <li><a href="products.html?category=calculators">Calculators</a></li>
+                    <li><a href="products.html?category=stationery">Stationery</a></li>
+                    <li><a href="products.html?category=lab">Lab Equipment</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt"></i> 1, KBTCOE, Gangapur Road, Nashik - 422013</li>
+                    <li><i class="fas fa-phone"></i> (+91) 9876543210</li>
+                    <li><i class="fas fa-envelope"></i> infotoolskart@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container copyright">
+            <p>&copy; 2025 ToolsKart. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            const loginPrompt = document.getElementById('loginPrompt');
+            const profileContent = document.getElementById('profileContent');
+            
+            if (isLoggedIn) {
+                loginPrompt.style.display = 'none';
+                profileContent.style.display = 'block';
+            } else {
+                loginPrompt.style.display = 'block';
+                profileContent.style.display = 'none';
+            }
+
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    tabBtns.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    btn.classList.add('active');
+                    const tabId = btn.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            const cartCount = localStorage.getItem('cartCount') || 0;
+            document.querySelector('.cart-count').textContent = cartCount;
+
+            const isLoggedInNav = localStorage.getItem('isLoggedIn') === 'true';
+            const loginOption = document.getElementById('loginOption');
+            const profileOption = document.getElementById('profileOption');
+            const logoutOption = document.getElementById('logoutOption');
+
+            if (isLoggedInNav) {
+                if (loginOption) loginOption.style.display = 'none';
+                if (profileOption) profileOption.style.display = 'block';
+                if (logoutOption) logoutOption.style.display = 'block';
+            } else {
+                if (loginOption) loginOption.style.display = 'block';
+                if (profileOption) profileOption.style.display = 'none';
+                if (logoutOption) logoutOption.style.display = 'none';
+            }
+
+            if (logoutOption) {
+                logoutOption.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    localStorage.setItem('isLoggedIn', 'false');
+                    window.location.href = 'index.html';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
